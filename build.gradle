@@ -1,0 +1,30 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.5.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+}
+
+group = 'org.uch' // 이건 저랑 맞추지 않고 프로젝트 생성시 입력하신 groupId로 맞춰주세요.
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '15' // 이건 프로젝트 생성시 설정하신 JDK으로 맞춰주세요.
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
