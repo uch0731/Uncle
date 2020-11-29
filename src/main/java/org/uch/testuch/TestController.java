@@ -11,7 +11,6 @@ import java.util.Map;
         public Map<String, Object> getTest() {
             Map<String, Object> resultMap = new HashMap<>();
             resultMap.put("a",1);
-            resultMap.put("b",2);
             resultMap.put("c",3);
             return resultMap;
         }
