@@ -1,0 +1,15 @@
+/.settings/
+/target/
+/build/
+/deploy/
+/.classpath
+/.project
+/.gradle
+.idea/
+*.iml
+/bin/
+/webapp/WEB-INF/classes/
+/webapp/WEB-INF/lib/
+/classes/
+.DS_Store
+out/
