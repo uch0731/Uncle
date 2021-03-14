@@ -1,21 +1,18 @@
-plugins {
-    id 'org.springframework.boot' version '2.2.5.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
-    id 'java'
-}
-
-group = 'org.uch' // 이건 저랑 맞추지 않고 프로젝트 생성시 입력하신 groupId로 맞춰주세요.
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '15' // 이건 프로젝트 생성시 설정하신 JDK으로 맞춰주세요.
-
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
+buildscript {
+    ext {
+        springBootVersion = '2.1.0.RELEASE'
     }
-}
+    repositories {
+        mavenCentral()
+        maven { url 'http://repo.spring.io/plugins-release' }
+        maven { url "https://repo.spring.io/repo" }
+    }
 
-repositories {
-    mavenCentral()
+    dependencies {
+        classpath('org.springframework.build.gradle:propdeps-plugin:0.0.7')
+        classpath('io.spring.gradle:dependency-management-plugin:1.0.6.RELEASE')
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
 }
 
 apply plugin: 'java'
@@ -26,6 +23,7 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
 
 test {
     exclude '**/*'
@@ -43,6 +41,16 @@ sourceSets {
         }
     }
 }
+
+bootRun {
+    String activeProfile =  System.properties['spring.profiles.active']
+    systemProperty "spring.profiles.active", activeProfile
+}
+
+repositories {
+    mavenCentral()
+}
+
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-aop')

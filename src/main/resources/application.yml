@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     jdbc-url: jdbc:mysql://localhost:3306/school?serverTimezone=Asia/Seoul&useUnicode=true&characterEncoding=UTF-8
-    username: root
-    password: 1234
+    username: uch
+    password: uch
     hikari:
       connection-test-query: SELECT 1
       minimum-idle: 1
