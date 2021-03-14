@@ -5,7 +5,9 @@
 /.classpath
 /.project
 /.gradle
-.idea/
+/.idea
+/.idea/
+.idea
 *.iml
 /bin/
 /webapp/WEB-INF/classes/
